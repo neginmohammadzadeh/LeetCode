@@ -1,0 +1,44 @@
+import java.util.Stack;
+
+/**
+ * @author Negin
+ *
+ */
+public class ValidParantesses {
+	
+	public static void main(String[] args) {
+		
+		isValid("()");
+	}
+	 public static boolean isValid(String s) {
+	      
+	      Stack<Character> ins = new Stack<>();
+
+	        for(char c : s.toCharArray())
+	        {
+	            switch(c)
+	            {
+	                case '(':
+	                case '[':
+	                case '{':
+	                     ins.push(c);
+	                     break;
+	                case ')':
+	                    if(ins.isEmpty() || ins.pop() != '(')
+	                    return false;
+	                    break;
+	                case ']':
+	                if(ins.isEmpty() || ins.pop() != '[')
+	                    return false;
+	                    break;
+	                case '}':
+	                if(ins.isEmpty() || ins.pop() != '{')
+	                    return false;
+	                	break;
+	            }
+	        }
+	         return ins.isEmpty();
+	    }
+
+
+}
